@@ -1,4 +1,4 @@
-name: refri_mobile_renewal
+name: refri_mobile
 description: A new Flutter project.
 
 publish_to: "none"
@@ -22,6 +22,18 @@ dependencies:
   csv: ^5.0.1
   get_it: ^7.2.0
   intl: ^0.18.0
+  carousel_slider: ^4.2.1
+  flutter_svg: ^2.0.3
+  convex_bottom_bar: ^3.2.0
+  flutter_native_splash: ^2.2.19
+  google_sign_in: ^6.0.2
+  flutter_local_notifications: ^8.2.0
+  firebase_core: ^2.7.1
+  firebase_analytics: ^10.1.5
+  firebase_messaging: ^14.2.6
+  firebase_crashlytics: ^3.0.16
+  firebase_app_check: ^0.1.1+13
+  firebase_auth: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -41,15 +53,13 @@ flutter:
   fonts:
     - family: NotoSans
       fonts:
-        - asset: asset/font/NotoSansKR-Black.otf
-          weight: 900
-        - asset: asset/font/NotoSansKR-Bold.otf
+        - asset: asset/font/SpoqaHanSansNeo-Bold.otf
           weight: 700
-        - asset: asset/font/NotoSansKR-Medium.otf
+        - asset: asset/font/SpoqaHanSansNeo-Medium.otf
           weight: 500
-        - asset: asset/font/NotoSansKR-Regular.otf
+        - asset: asset/font/SpoqaHanSansNeo-Regular.otf
           weight: 400
-        - asset: asset/font/NotoSansKR-Light.otf
+        - asset: asset/font/SpoqaHanSansNeo-Light.otf
           weight: 300
-        - asset: asset/font/NotoSansKR-Thin.otf
+        - asset: asset/font/SpoqaHanSansNeo-Thin.otf
           weight: 100
