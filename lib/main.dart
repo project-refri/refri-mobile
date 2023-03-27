@@ -1,10 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:provider/provider.dart';
+import 'package:refri_mobile/App.dart';
+import 'package:refri_mobile/presentation/login/login_screen.dart';
 import 'util/color_schemes.dart';
-import "package:hive_flutter/hive_flutter.dart";
 
 void main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await initializeDefault(widgetsBinding);
+
   runApp(const MyApp());
 }
 
@@ -14,11 +17,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Flutter Demo",
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       themeMode: ThemeMode.system,
-      home: const Text("HI"),
+      home: LoginScreen(),
     );
   }
+}
+
+Future<void> initializeDefault(WidgetsBinding widgetsBinding) async {
+  await Firebase.initializeApp();
 }
