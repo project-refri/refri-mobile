@@ -51,7 +51,7 @@ flutter:
     - asset/img/
     - asset/svg/
   fonts:
-    - family: NotoSans
+    - family: SpoqaHanSans
       fonts:
         - asset: asset/font/SpoqaHanSansNeo-Bold.otf
           weight: 700
