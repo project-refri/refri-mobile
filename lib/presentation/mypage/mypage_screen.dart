@@ -1,44 +1,60 @@
 import 'dart:math';
+import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:refri_mobile/constants/colors.dart';
 import 'package:refri_mobile/presentation/login/login_screen.dart';
+import 'package:refri_mobile/presentation/mypage/mypage_action.dart';
+import 'package:refri_mobile/presentation/mypage/mypage_state.dart';
+import 'package:refri_mobile/presentation/mypage/mypage_view_model.dart';
 
 class MypageScreen extends StatelessWidget {
   const MypageScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Container(
-              color: Colors.white,
-              child: AnnotatedRegion<SystemUiOverlayStyle>(
-                value: SystemUiOverlayStyle(
-                  statusBarColor: Colors.transparent,
-                ),
-                child: CustomScrollView(
-                  slivers: [
-                    _ProfileImageHeader(),
-                    SliverPersistentHeader(
-                      pinned: true,
-                      delegate: DashboardHeaderPersistentDelegate(),
-                    ),
-                    // _ProfileDetailHeader(),
-                    _PostHeader(),
-                    SliverToBoxAdapter(child: _ProfilePost())
-                  ],
-                ),
-              ),
-            );
-          } else {
-            return LoginScreen();
-          }
-        });
+    final viewModel = context.watch<MypageViewModel>();
+    final state = viewModel.state;
+    print(state);
+
+    if (state.isLoading) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
+    if (state.isError) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      });
+
+      return Container();
+    }
+
+    return Container(
+      color: Colors.white,
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+        ),
+        child: CustomScrollView(
+          slivers: [
+            _ProfileImageHeader(),
+            // SliverPersistentHeader(
+            //   pinned: true,
+            //   delegate: DashboardHeaderPersistentDelegate(
+            //       state.userInfo!.nickname, state.userInfo!.introduction),
+            // ),
+            _ProfileDetailHeader(),
+            _PostHeader(),
+            SliverToBoxAdapter(child: _ProfilePost())
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -98,7 +114,7 @@ class _ProfileDetailHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPersistentHeader(
-        pinned: true,
+        pinned: false,
         delegate: _SliverFixedHeaderDelegate(
             child: Container(
                 color: PRIMARY_COLOR,
@@ -111,7 +127,7 @@ class _ProfileDetailHeader extends StatelessWidget {
                         color: Colors.white,
                         child: Row(
                           children: [
-                            Text("나래의 식탁",
+                            Text("김나래",
                                 style: TextStyle(
                                   color: SUB_COLOR_1,
                                   fontSize: 26,
@@ -167,25 +183,6 @@ class _ProfileDetailHeader extends StatelessWidget {
                                     )),
                               ),
                             ),
-                            SizedBox(
-                              width: 253,
-                              height: 40,
-                              child: ElevatedButton(
-                                  onPressed: () {},
-                                  style: ButtonStyle(
-                                    shape: MaterialStateProperty.all(
-                                        RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30.0),
-                                    )),
-                                    backgroundColor:
-                                        MaterialStateProperty.all(SUB_COLOR_1),
-                                  ),
-                                  child: Text("팔로우하기",
-                                      style: TextStyle(
-                                          color: Color(0xFFF1F1E7),
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w500))),
-                            ),
                           ],
                         ),
                       ),
@@ -193,7 +190,7 @@ class _ProfileDetailHeader extends StatelessWidget {
                   ),
                 )),
             maxHeight: 270,
-            minHeight: 80));
+            minHeight: 0));
   }
 }
 
@@ -324,6 +321,11 @@ class _ProfilePost extends StatelessWidget {
 }
 
 class DashboardHeaderPersistentDelegate extends SliverPersistentHeaderDelegate {
+  final String nickname;
+  final String introduction;
+
+  DashboardHeaderPersistentDelegate(this.nickname, this.introduction);
+
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -339,17 +341,10 @@ class DashboardHeaderPersistentDelegate extends SliverPersistentHeaderDelegate {
           children: <Widget>[
             Row(
               children: [
-                Text("나래의 식탁",
+                Text(nickname,
                     style: TextStyle(
                       color: SUB_COLOR_1,
                       fontSize: 26,
-                      fontWeight: FontWeight.w500,
-                    )),
-                SizedBox(width: 8),
-                Text("@NARAE_TABLE",
-                    style: TextStyle(
-                      color: SUB_COLOR_2,
-                      fontSize: 10,
                       fontWeight: FontWeight.w500,
                     )),
                 SizedBox(width: 8),
@@ -370,80 +365,46 @@ class DashboardHeaderPersistentDelegate extends SliverPersistentHeaderDelegate {
                 )
               ],
             ),
-            Expanded(
-              child: Column(
-                children: [
-                  if (shrinkPercentage != 1)
-                    Opacity(
-                      opacity: 1 - shrinkPercentage,
-                      child: _buildInformationWidget(context),
-                    ),
-                ],
-              ),
-            )
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(introduction == "" ? "자기소개를 입력해주세요" : introduction,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: SUB_COLOR_1,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w400,
+                    )),
+                SizedBox(
+                  width: 253,
+                  height: 40,
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        )),
+                        backgroundColor: MaterialStateProperty.all(SUB_COLOR_1),
+                      ),
+                      child: Text("팔로우하기",
+                          style: TextStyle(
+                              color: Color(0xFFF1F1E7),
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500))),
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildInformationWidget(BuildContext context) => ClipRect(
-        child: Container(
-          color: Colors.white,
-          height: 151,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              Text("I AM",
-                  style: TextStyle(
-                    color: SUB_COLOR_1,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                  )),
-              SizedBox(height: 8),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                      "자기소개자기소개자기소개자기소개자기소개자기소개. 자기소개자기소개자기소개자기소개자기소개자기소개자기소개 자기소개자기소개자기소개자기소개자기소개자기소개자기소개",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: SUB_COLOR_1,
-                        fontSize: 11,
-                        fontWeight: FontWeight.w400,
-                      )),
-                ),
-              ),
-              SizedBox(
-                width: 253,
-                height: 40,
-                child: ElevatedButton(
-                    onPressed: () {
-                      //logout
-                      FirebaseAuth.instance.signOut();
-                    },
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      )),
-                      backgroundColor: MaterialStateProperty.all(SUB_COLOR_1),
-                    ),
-                    child: Text("등록 신청하기",
-                        style: TextStyle(
-                            color: Color(0xFFF1F1E7),
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500))),
-              ),
-            ],
-          ),
-        ),
-      );
+  @override
+  double get maxExtent => 240;
 
   @override
-  double get maxExtent => 300;
-
-  @override
-  double get minExtent => 80;
+  double get minExtent => 100;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
