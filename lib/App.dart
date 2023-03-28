@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:refri_mobile/constants/colors.dart';
 import 'package:refri_mobile/presentation/home/home_screen.dart';
-import 'package:refri_mobile/presentation/profile/profile_screen.dart';
+import 'package:refri_mobile/presentation/mypage/mypage_screen.dart';
 import 'package:refri_mobile/presentation/recipe/recipe_screen.dart';
 
 class App extends StatefulWidget {
@@ -28,7 +28,7 @@ class _AppState extends State<App> {
       style: optionStyle,
     ),
     RecipeScreen(),
-    ProfileScreen(),
+    MypageScreen(),
   ];
 
   @override

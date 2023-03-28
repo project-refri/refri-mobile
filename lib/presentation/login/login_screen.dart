@@ -1,9 +1,14 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart';
 import 'package:refri_mobile/App.dart';
 import 'package:refri_mobile/constants/icon.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:refri_mobile/data/source/remote/auth_api.dart';
 
 Future<UserCredential> signInWithGoogle() async {
   // Trigger the authentication flow
@@ -28,15 +33,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if (user == null) {
-        print('User is currently signed out!');
-      } else {
-        print('User is signed in!');
-        print(user);
-      }
-    });
-
     return Scaffold(
         body: Container(
       width: double.infinity,
@@ -83,6 +79,9 @@ class LoginScreen extends StatelessWidget {
       required icon,
       required onPressed,
       required context}) {
+    final storage = FlutterSecureStorage();
+    final AuthApi authApi = AuthApi();
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Container(
@@ -90,10 +89,20 @@ class LoginScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () async {
             try {
-              await onPressed();
-              // navigate home screen
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => App()));
+              UserCredential oauthResponse = (await onPressed());
+              String accessToken = oauthResponse.credential!.accessToken!;
+              String name = oauthResponse.user!.displayName!;
+              // print(accessToken);
+              // print(name);
+              Map<String, dynamic> resigterResponse = jsonDecode(
+                  (await authApi.googleLogin(accessToken: accessToken)).body);
+              String registerToken = resigterResponse["data"]["register_token"];
+              bool isExist = resigterResponse["data"]["is_exist"] == "true";
+              if (!isExist) {
+                Response response = await authApi.register(
+                    registerToken: registerToken, name: name);
+                print(response.body);
+              }
             } on FirebaseAuthException catch (e) {
               print(e);
             }
