@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:refri_mobile/App.dart';
+import 'package:refri_mobile/presentation/home/home_screen.dart';
 import 'package:refri_mobile/presentation/login/login_screen.dart';
 import 'util/color_schemes.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       themeMode: ThemeMode.system,
-      home: LoginScreen(),
+      home: App(),
     );
   }
 }
