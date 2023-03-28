@@ -8,7 +8,9 @@ import 'package:http/http.dart';
 import 'package:refri_mobile/App.dart';
 import 'package:refri_mobile/constants/icon.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:refri_mobile/data/mapper/auth_mapper.dart';
 import 'package:refri_mobile/data/source/remote/auth_api.dart';
+import 'package:refri_mobile/domain/model/auth/auth_info.dart';
 
 Future<UserCredential> signInWithGoogle() async {
   // Trigger the authentication flow
@@ -79,7 +81,7 @@ class LoginScreen extends StatelessWidget {
       required icon,
       required onPressed,
       required context}) {
-    final storage = FlutterSecureStorage();
+    // final storage = FlutterSecureStorage();
     final AuthApi authApi = AuthApi();
 
     return Padding(
@@ -89,24 +91,33 @@ class LoginScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () async {
             try {
-              UserCredential oauthResponse = (await onPressed());
-              String accessToken = oauthResponse.credential!.accessToken!;
-              String name = oauthResponse.user!.displayName!;
+              final UserCredential oauthResponse = (await onPressed());
+              final String accessToken = oauthResponse.credential!.accessToken!;
+              final String name = oauthResponse.user!.displayName!;
               // print(accessToken);
               // print(name);
-              Map<String, dynamic> resigterResponse = jsonDecode(
-                  (await authApi.googleLogin(accessToken: accessToken)).body);
-              String registerToken = resigterResponse["data"]["register_token"];
-              bool isExist = resigterResponse["data"]["is_exist"] == "true";
-              if (!isExist) {
-                Response response = await authApi.register(
-                    registerToken: registerToken, name: name);
-                print(response.body);
+              final AuthInfo loginResponse =
+                  (await authApi.googleLogin(accessToken: accessToken))
+                      .toAuthInfo();
+              print(loginResponse);
+
+              if (!loginResponse.isExist) {
+                String registerToken = loginResponse.registerToken!;
+                final AuthInfo registerResponse = (await authApi.register(
+                        registerToken: registerToken, name: name))
+                    .toAuthInfo();
+                print(registerResponse);
               }
             } on FirebaseAuthException catch (e) {
               print(e);
             }
           },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: backgroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
           child: Stack(
             children: [
               Align(alignment: Alignment.centerLeft, child: icon),
@@ -120,12 +131,6 @@ class LoginScreen extends StatelessWidget {
                         fontFamily: "SpoqaHanSans")),
               ),
             ],
-          ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4),
-            ),
           ),
         ),
       ),

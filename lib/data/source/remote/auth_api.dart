@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:refri_mobile/data/source/remote/dto/auth_info_dto.dart';
 
 class AuthApi {
   static const baseUrl =
@@ -9,25 +10,28 @@ class AuthApi {
 
   AuthApi({http.Client? client}) : _client = client ?? http.Client();
 
-  Future<http.Response> googleLogin({required String accessToken}) async {
-    return await _client.post(Uri.parse("$baseUrl/auth/google"),
+  Future<AuthInfoDto> googleLogin({required String accessToken}) async {
+    final response = await _client.post(Uri.parse("$baseUrl/auth/google"),
         body: <String, String>{'access_token': accessToken});
+    return AuthInfoDto.fromJson(jsonDecode(response.body)["data"]);
   }
 
-  Future<http.Response> appleLogin({required String accessToken}) async {
-    return await _client.post(Uri.parse("$baseUrl/auth/apple"),
+  Future<AuthInfoDto> appleLogin({required String accessToken}) async {
+    final response = await _client.post(Uri.parse("$baseUrl/auth/apple"),
         body: <String, String>{'access_token': accessToken});
+    return AuthInfoDto.fromJson(jsonDecode(response.body)["data"]);
   }
 
-  Future<http.Response> kakaoLogin({required String accessToken}) async {
-    return await _client.post(Uri.parse("$baseUrl/auth/kakao"),
+  Future<AuthInfoDto> kakaoLogin({required String accessToken}) async {
+    final response = await _client.post(Uri.parse("$baseUrl/auth/kakao"),
         body: <String, String>{'access_token': accessToken});
+    return AuthInfoDto.fromJson(jsonDecode(response.body)["data"]);
   }
 
-  Future<http.Response> register(
-      {required registerToken, required name}) async {
-    return await _client.post(Uri.parse("$baseUrl/auth/register"),
+  Future<AuthInfoDto> register({required registerToken, required name}) async {
+    final response = await _client.post(Uri.parse("$baseUrl/auth/register"),
         headers: <String, String>{'Authorization': 'Bearer $registerToken'},
         body: <String, String>{'nickname': name, 'username': name});
+    return AuthInfoDto.fromJson(jsonDecode(response.body)["data"]);
   }
 }
