@@ -18,4 +18,14 @@ class UserRepositoryImpl implements UserRepository {
       return Result.error(Exception("네트워크 에러 발생: ${e.toString()}"));
     }
   }
+
+  @override
+  Future<Result<UserInfo>> getMe() async {
+    try {
+      final dto = await _api.getUserInfo("test");
+      return Result.success(dto.toUserInfo());
+    } catch (e) {
+      return Result.error(Exception("네트워크 에러 발생: ${e.toString()}"));
+    }
+  }
 }

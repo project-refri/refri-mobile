@@ -15,4 +15,10 @@ class UserApi {
     final response = await _client.get(Uri.parse("$baseUrl/user/$id"));
     return UserInfoDto.fromJson(jsonDecode(response.body)["data"]);
   }
+
+  Future<UserInfoDto> getMe() async {
+    final response = await _client.get(Uri.parse("$baseUrl/user/me"),
+        headers: <String, String>{'Authorization': 'Bearer '});
+    return UserInfoDto.fromJson(jsonDecode(response.body)["data"]);
+  }
 }

@@ -25,7 +25,7 @@ mixin _$AuthInfoDto {
   @JsonKey(name: "token")
   Token? get token => throw _privateConstructorUsedError;
   @JsonKey(name: "user")
-  UserInfo? get userInfo => throw _privateConstructorUsedError;
+  UserInfoDto? get userInfoDto => throw _privateConstructorUsedError;
   @JsonKey(name: "register_token")
   String? get registerToken => throw _privateConstructorUsedError;
 
@@ -44,10 +44,10 @@ abstract class $AuthInfoDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "is_exist") bool? isExist,
       @JsonKey(name: "token") Token? token,
-      @JsonKey(name: "user") UserInfo? userInfo,
+      @JsonKey(name: "user") UserInfoDto? userInfoDto,
       @JsonKey(name: "register_token") String? registerToken});
 
-  $UserInfoCopyWith<$Res>? get userInfo;
+  $UserInfoDtoCopyWith<$Res>? get userInfoDto;
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$AuthInfoDtoCopyWithImpl<$Res, $Val extends AuthInfoDto>
   $Res call({
     Object? isExist = freezed,
     Object? token = freezed,
-    Object? userInfo = freezed,
+    Object? userInfoDto = freezed,
     Object? registerToken = freezed,
   }) {
     return _then(_value.copyWith(
@@ -77,10 +77,10 @@ class _$AuthInfoDtoCopyWithImpl<$Res, $Val extends AuthInfoDto>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as Token?,
-      userInfo: freezed == userInfo
-          ? _value.userInfo
-          : userInfo // ignore: cast_nullable_to_non_nullable
-              as UserInfo?,
+      userInfoDto: freezed == userInfoDto
+          ? _value.userInfoDto
+          : userInfoDto // ignore: cast_nullable_to_non_nullable
+              as UserInfoDto?,
       registerToken: freezed == registerToken
           ? _value.registerToken
           : registerToken // ignore: cast_nullable_to_non_nullable
@@ -90,13 +90,13 @@ class _$AuthInfoDtoCopyWithImpl<$Res, $Val extends AuthInfoDto>
 
   @override
   @pragma('vm:prefer-inline')
-  $UserInfoCopyWith<$Res>? get userInfo {
-    if (_value.userInfo == null) {
+  $UserInfoDtoCopyWith<$Res>? get userInfoDto {
+    if (_value.userInfoDto == null) {
       return null;
     }
 
-    return $UserInfoCopyWith<$Res>(_value.userInfo!, (value) {
-      return _then(_value.copyWith(userInfo: value) as $Val);
+    return $UserInfoDtoCopyWith<$Res>(_value.userInfoDto!, (value) {
+      return _then(_value.copyWith(userInfoDto: value) as $Val);
     });
   }
 }
@@ -112,11 +112,11 @@ abstract class _$$_AuthInfoDtoCopyWith<$Res>
   $Res call(
       {@JsonKey(name: "is_exist") bool? isExist,
       @JsonKey(name: "token") Token? token,
-      @JsonKey(name: "user") UserInfo? userInfo,
+      @JsonKey(name: "user") UserInfoDto? userInfoDto,
       @JsonKey(name: "register_token") String? registerToken});
 
   @override
-  $UserInfoCopyWith<$Res>? get userInfo;
+  $UserInfoDtoCopyWith<$Res>? get userInfoDto;
 }
 
 /// @nodoc
@@ -132,7 +132,7 @@ class __$$_AuthInfoDtoCopyWithImpl<$Res>
   $Res call({
     Object? isExist = freezed,
     Object? token = freezed,
-    Object? userInfo = freezed,
+    Object? userInfoDto = freezed,
     Object? registerToken = freezed,
   }) {
     return _then(_$_AuthInfoDto(
@@ -144,10 +144,10 @@ class __$$_AuthInfoDtoCopyWithImpl<$Res>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as Token?,
-      userInfo: freezed == userInfo
-          ? _value.userInfo
-          : userInfo // ignore: cast_nullable_to_non_nullable
-              as UserInfo?,
+      userInfoDto: freezed == userInfoDto
+          ? _value.userInfoDto
+          : userInfoDto // ignore: cast_nullable_to_non_nullable
+              as UserInfoDto?,
       registerToken: freezed == registerToken
           ? _value.registerToken
           : registerToken // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class _$_AuthInfoDto implements _AuthInfoDto {
   const _$_AuthInfoDto(
       {@JsonKey(name: "is_exist") this.isExist,
       @JsonKey(name: "token") this.token,
-      @JsonKey(name: "user") this.userInfo,
+      @JsonKey(name: "user") this.userInfoDto,
       @JsonKey(name: "register_token") this.registerToken});
 
   factory _$_AuthInfoDto.fromJson(Map<String, dynamic> json) =>
@@ -176,14 +176,14 @@ class _$_AuthInfoDto implements _AuthInfoDto {
   final Token? token;
   @override
   @JsonKey(name: "user")
-  final UserInfo? userInfo;
+  final UserInfoDto? userInfoDto;
   @override
   @JsonKey(name: "register_token")
   final String? registerToken;
 
   @override
   String toString() {
-    return 'AuthInfoDto(isExist: $isExist, token: $token, userInfo: $userInfo, registerToken: $registerToken)';
+    return 'AuthInfoDto(isExist: $isExist, token: $token, userInfoDto: $userInfoDto, registerToken: $registerToken)';
   }
 
   @override
@@ -193,8 +193,8 @@ class _$_AuthInfoDto implements _AuthInfoDto {
             other is _$_AuthInfoDto &&
             (identical(other.isExist, isExist) || other.isExist == isExist) &&
             (identical(other.token, token) || other.token == token) &&
-            (identical(other.userInfo, userInfo) ||
-                other.userInfo == userInfo) &&
+            (identical(other.userInfoDto, userInfoDto) ||
+                other.userInfoDto == userInfoDto) &&
             (identical(other.registerToken, registerToken) ||
                 other.registerToken == registerToken));
   }
@@ -202,7 +202,7 @@ class _$_AuthInfoDto implements _AuthInfoDto {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, isExist, token, userInfo, registerToken);
+      Object.hash(runtimeType, isExist, token, userInfoDto, registerToken);
 
   @JsonKey(ignore: true)
   @override
@@ -222,7 +222,7 @@ abstract class _AuthInfoDto implements AuthInfoDto {
   const factory _AuthInfoDto(
           {@JsonKey(name: "is_exist") final bool? isExist,
           @JsonKey(name: "token") final Token? token,
-          @JsonKey(name: "user") final UserInfo? userInfo,
+          @JsonKey(name: "user") final UserInfoDto? userInfoDto,
           @JsonKey(name: "register_token") final String? registerToken}) =
       _$_AuthInfoDto;
 
@@ -237,7 +237,7 @@ abstract class _AuthInfoDto implements AuthInfoDto {
   Token? get token;
   @override
   @JsonKey(name: "user")
-  UserInfo? get userInfo;
+  UserInfoDto? get userInfoDto;
   @override
   @JsonKey(name: "register_token")
   String? get registerToken;

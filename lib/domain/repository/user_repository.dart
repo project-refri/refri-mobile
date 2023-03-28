@@ -3,4 +3,5 @@ import 'package:refri_mobile/util/result.dart';
 
 abstract class UserRepository {
   Future<Result<UserInfo>> getUserInfo(String id);
+  Future<Result<UserInfo>> getMe();
 }
