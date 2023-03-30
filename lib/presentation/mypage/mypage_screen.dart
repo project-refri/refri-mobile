@@ -46,7 +46,7 @@ class MypageScreen extends StatelessWidget {
           slivers: [
             ProfileAppBar(
                 profileImage:
-                    "https://blog.kakaocdn.net/dn/GHYFr/btrsSwcSDQV/UQZxkayGyAXrPACyf0MaV1/img.jpg"),
+                    "https://user-images.githubusercontent.com/24623403/228809621-4f0a7aec-cd41-4d56-830e-19d37eb08b1f.png"),
             IntroduceHeader(),
             Introduce(),
             PostHeader(),

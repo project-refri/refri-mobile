@@ -20,11 +20,11 @@ class ProfileAppBar extends StatelessWidget {
     return SliverAppBar(
       pinned: true,
       backgroundColor: Colors.black,
-      expandedHeight: 500,
-      leading: Container(
+      expandedHeight: 450,
+      leading: const SizedBox(
         width: 100,
         height: 40,
-        child: const Center(
+        child: Center(
           child: Icon(Icons.arrow_back_ios, color: Colors.black),
         ),
       ),
