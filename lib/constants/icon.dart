@@ -20,6 +20,7 @@ enum IconAsset {
   appleIcon('apple_icon'),
   kakaoIcon('kakao_icon'),
   googleIcon('google_icon'),
+  veganIcon('vegan_icon'),
   ;
 
   const IconAsset(this.name);
