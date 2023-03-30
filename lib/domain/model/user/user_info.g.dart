@@ -30,7 +30,7 @@ Map<String, dynamic> _$$_UserInfoToJson(_$_UserInfo instance) =>
     };
 
 const _$DietEnumMap = {
-  Diet.nomal: 'NOMARL',
+  Diet.nomal: 'NORMAL',
   Diet.workout: 'WORKOUT',
   Diet.keto: 'KETO',
   Diet.vegan: 'VEGAN',

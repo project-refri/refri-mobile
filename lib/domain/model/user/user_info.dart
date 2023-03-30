@@ -22,8 +22,8 @@ class UserInfo with _$UserInfo {
 }
 
 enum Diet {
-  @JsonValue("NOMARL")
-  nomal("nomal"),
+  @JsonValue("NORMAL")
+  nomal("normal"),
   @JsonValue("WORKOUT")
   workout("workout"),
   @JsonValue("KETO")
