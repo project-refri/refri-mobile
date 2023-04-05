@@ -1,50 +1,24 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:refri_mobile/constants/icon.dart';
-import 'package:refri_mobile/data/mapper/auth_mapper.dart';
 import 'package:refri_mobile/data/source/remote/auth_api.dart';
-import 'package:refri_mobile/domain/model/auth/auth_info.dart';
-import 'package:refri_mobile/presentation/login/google_oauth_response.dart';
-import 'package:refri_mobile/presentation/login/oauth.dart';
-import 'package:refri_mobile/presentation/mypage/mypage_action.dart';
-import 'package:refri_mobile/presentation/mypage/mypage_view_model.dart';
+import 'package:refri_mobile/presentation/login/login_action.dart';
+import 'package:refri_mobile/presentation/login/login_view_model.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final AuthApi authApi = AuthApi();
-    final viewModel = context.watch<MypageViewModel>();
+    final loginViewModel = context.watch<LoginViewModel>();
+    final loginState = loginViewModel.state;
 
-    handleLogin(handleOauth) => () async {
-          try {
-            final OauthResponse oauthResponse = await handleOauth();
-
-            final AuthInfo loginResponse = (await authApi.googleLogin(
-                    accessToken: oauthResponse.accessToken))
-                .toAuthInfo();
-            if (loginResponse.isExist) {
-              viewModel.onAction(
-                  MypageAction.updateUserInfo(loginResponse.userInfo));
-            }
-
-            if (!loginResponse.isExist) {
-              String registerToken = loginResponse.registerToken!;
-              final AuthInfo registerResponse = (await authApi.register(
-                      registerToken: registerToken, name: oauthResponse.name))
-                  .toAuthInfo();
-              viewModel.onAction(
-                  MypageAction.updateUserInfo(registerResponse.userInfo));
-            }
-
-            Navigator.pop(context);
-          } on FirebaseAuthException catch (e) {
-            print(e);
-          }
-        };
+    if (loginState.token != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.of(context).pop();
+      });
+    }
 
     return Scaffold(
         body: Container(
@@ -55,7 +29,7 @@ class LoginScreen extends StatelessWidget {
         children: [
           SvgPicture.asset(IconAsset.logoWhiteIcon.path),
           const SizedBox(height: 200),
-          LoginButton(
+          loginButton(
             backgroundColor: Color(0xFFFECD00),
             textColor: Color(0xFF3C1E1E),
             text: "카카오톡 계정으로 로그인",
@@ -63,15 +37,16 @@ class LoginScreen extends StatelessWidget {
             handleLogin: () {},
           ),
           const SizedBox(height: 16),
-          LoginButton(
+          loginButton(
             backgroundColor: Colors.white,
             textColor: Color(0xFF686868),
             text: "구글 계정으로 로그인",
             icon: SvgPicture.asset(IconAsset.googleIcon.path),
-            handleLogin: handleLogin(signInWithGoogle),
+            handleLogin: () =>
+                loginViewModel.onAction(const LoginAction.googleLogin()),
           ),
           const SizedBox(height: 16),
-          LoginButton(
+          loginButton(
             backgroundColor: Color(0xFF111111),
             textColor: Colors.white,
             text: "애플 계정으로 로그인",
@@ -85,7 +60,7 @@ class LoginScreen extends StatelessWidget {
     ));
   }
 
-  Widget LoginButton({
+  Widget loginButton({
     required backgroundColor,
     required textColor,
     required text,

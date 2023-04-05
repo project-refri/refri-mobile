@@ -21,19 +21,18 @@ dependencies:
   hive_flutter: ^1.1.0
   csv: ^5.0.1
   get_it: ^7.2.0
-  intl: ^0.18.0
+  intl: ^0.17.0
   carousel_slider: ^4.2.1
   flutter_svg: ^2.0.3
   convex_bottom_bar: ^3.2.0
   flutter_native_splash: ^2.2.19
   google_sign_in: ^6.0.2
-  flutter_local_notifications: ^8.2.0
-  firebase_core: ^2.7.1
-  firebase_analytics: ^10.1.5
-  firebase_messaging: ^14.2.6
-  firebase_crashlytics: ^3.0.16
-  firebase_app_check: ^0.1.1+13
-  firebase_auth: ^4.2.2
+  flutter_local_notifications: ^13.0.0
+  firebase_core: ^2.9.0
+  firebase_analytics: ^10.2.0
+  firebase_messaging: ^14.4.0
+  firebase_crashlytics: ^3.1.0
+  firebase_auth: ^4.4.0
   flutter_secure_storage: ^8.0.0
 
 dev_dependencies:
