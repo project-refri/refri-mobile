@@ -14,41 +14,35 @@ class Introduce extends StatelessWidget {
       fontWeight: FontWeight.w400,
     );
 
-    return SliverPersistentHeader(
-        delegate: SliverFixedHeaderDelegate(
-            child: Container(
-              color: PRIMARY_COLOR,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text("I AM",
-                        textAlign: TextAlign.center,
-                        style:
-                            defaultStyle.copyWith(fontWeight: FontWeight.w600)),
-                    const SizedBox(height: 8),
-                    Text(
-                        "자기소개자기소개자기소개자기소개자기소개자기소개. 자기소개자기소개자기소개자기소개자기소개자기소개자기소개 자기소개자기소개자기소개자기소개자기소개자기소개자기소개",
-                        textAlign: TextAlign.center,
-                        style: defaultStyle),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text("팔로우하기",
-                          style: defaultStyle.copyWith(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500)),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: SUB_COLOR_1),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            maxHeight: 200,
-            minHeight: 0));
+    return Container(
+      color: PRIMARY_COLOR,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text("I AM",
+                textAlign: TextAlign.center,
+                style: defaultStyle.copyWith(fontWeight: FontWeight.w600)),
+            const SizedBox(height: 8),
+            Text(
+                "자기소개자기소개자기소개자기소개자기소개자기소개. 자기소개자기소개자기소개자기소개자기소개자기소개자기소개 자기소개자기소개자기소개자기소개자기소개자기소개자기소개",
+                textAlign: TextAlign.center,
+                style: defaultStyle),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text("팔로우하기",
+                  style: defaultStyle.copyWith(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500)),
+              style: ElevatedButton.styleFrom(backgroundColor: SUB_COLOR_1),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
