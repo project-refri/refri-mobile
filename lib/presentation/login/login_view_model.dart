@@ -54,6 +54,8 @@ class LoginViewModel with ChangeNotifier {
             .toAuthInfo();
       }
 
+      _repository.writeToken(loginResponse.token);
+
       _state = _state.copyWith(
           isError: false,
           token: loginResponse.token,

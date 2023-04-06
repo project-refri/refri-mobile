@@ -23,12 +23,12 @@ class MainSection extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 19,
                     fontWeight: FontWeight.bold,
                     color: SUB_COLOR_1),
               ),
-              Text(
+              const Text(
                 '전체보기',
                 style: TextStyle(
                   fontSize: 12,
@@ -38,7 +38,7 @@ class MainSection extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           child
         ],
       ),

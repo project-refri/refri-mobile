@@ -24,7 +24,7 @@ class BannerCard extends StatelessWidget {
                 'image': image,
               }),
               pageBuilder: (context, animation, secondaryAnimation) =>
-                  BannerDetailScreen(),
+                  const BannerDetailScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
                 return ScaleTransition(
@@ -68,13 +68,13 @@ class _Content extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(title,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFFEFEFE3))),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(description,
-                style: TextStyle(fontSize: 12, color: Color(0xFFEFEFE3))),
+                style: const TextStyle(fontSize: 12, color: Color(0xFFEFEFE3))),
           ],
         ),
       ),

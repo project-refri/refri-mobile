@@ -13,6 +13,7 @@ _$_UserInfoDto _$$_UserInfoDtoFromJson(Map<String, dynamic> json) =>
       username: json['username'] as String?,
       email: json['email'] as String?,
       introduction: json['introduction'] as String?,
+      thumbnail: json['thumbnail'] as String?,
       diet: $enumDecodeNullable(_$DietEnumMap, json['diet']),
       createdAt: json['created_at'] == null
           ? null
@@ -29,6 +30,7 @@ Map<String, dynamic> _$$_UserInfoDtoToJson(_$_UserInfoDto instance) =>
       'username': instance.username,
       'email': instance.email,
       'introduction': instance.introduction,
+      'thumbnail': instance.thumbnail,
       'diet': _$DietEnumMap[instance.diet],
       'created_at': instance.createdAt?.toIso8601String(),
       'updated_at': instance.updatedAt?.toIso8601String(),

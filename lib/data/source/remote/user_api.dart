@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:refri_mobile/data/source/remote/dto/user_info_dto.dart';
+import 'package:refri_mobile/domain/model/auth/auth_info.dart';
 
 class UserApi {
   static const baseUrl =
@@ -16,9 +17,11 @@ class UserApi {
     return UserInfoDto.fromJson(jsonDecode(response.body)["data"]);
   }
 
-  Future<UserInfoDto> getMe() async {
-    final response = await _client.get(Uri.parse("$baseUrl/user/me"),
-        headers: <String, String>{'Authorization': 'Bearer '});
+  Future<UserInfoDto> getMe(Token token) async {
+    final response = await _client.get(Uri.parse("$baseUrl/auth/me"),
+        headers: <String, String>{
+          'Authorization': 'Bearer ${token.accessToken}'
+        });
     return UserInfoDto.fromJson(jsonDecode(response.body)["data"]);
   }
 }

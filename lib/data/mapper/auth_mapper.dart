@@ -15,6 +15,7 @@ extension ToAuthInfo on AuthInfoDto {
                 username: "",
                 email: "",
                 introduction: "",
+                thumbnail: "",
                 diet: Diet.nomal,
                 createdAt: DateTime.now(),
                 updatedAt: DateTime.now()),

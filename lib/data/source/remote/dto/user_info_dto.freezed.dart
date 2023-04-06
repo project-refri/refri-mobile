@@ -30,6 +30,8 @@ mixin _$UserInfoDto {
   String? get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'introduction')
   String? get introduction => throw _privateConstructorUsedError;
+  @JsonKey(name: 'thumbnail')
+  String? get thumbnail => throw _privateConstructorUsedError;
   @JsonKey(name: 'diet')
   Diet? get diet => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -55,6 +57,7 @@ abstract class $UserInfoDtoCopyWith<$Res> {
       @JsonKey(name: 'username') String? username,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'introduction') String? introduction,
+      @JsonKey(name: 'thumbnail') String? thumbnail,
       @JsonKey(name: 'diet') Diet? diet,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
@@ -78,6 +81,7 @@ class _$UserInfoDtoCopyWithImpl<$Res, $Val extends UserInfoDto>
     Object? username = freezed,
     Object? email = freezed,
     Object? introduction = freezed,
+    Object? thumbnail = freezed,
     Object? diet = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -102,6 +106,10 @@ class _$UserInfoDtoCopyWithImpl<$Res, $Val extends UserInfoDto>
       introduction: freezed == introduction
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
       diet: freezed == diet
           ? _value.diet
@@ -133,6 +141,7 @@ abstract class _$$_UserInfoDtoCopyWith<$Res>
       @JsonKey(name: 'username') String? username,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'introduction') String? introduction,
+      @JsonKey(name: 'thumbnail') String? thumbnail,
       @JsonKey(name: 'diet') Diet? diet,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
@@ -154,6 +163,7 @@ class __$$_UserInfoDtoCopyWithImpl<$Res>
     Object? username = freezed,
     Object? email = freezed,
     Object? introduction = freezed,
+    Object? thumbnail = freezed,
     Object? diet = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -178,6 +188,10 @@ class __$$_UserInfoDtoCopyWithImpl<$Res>
       introduction: freezed == introduction
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
       diet: freezed == diet
           ? _value.diet
@@ -204,6 +218,7 @@ class _$_UserInfoDto implements _UserInfoDto {
       @JsonKey(name: 'username') this.username,
       @JsonKey(name: 'email') this.email,
       @JsonKey(name: 'introduction') this.introduction,
+      @JsonKey(name: 'thumbnail') this.thumbnail,
       @JsonKey(name: 'diet') this.diet,
       @JsonKey(name: 'created_at') this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt});
@@ -227,6 +242,9 @@ class _$_UserInfoDto implements _UserInfoDto {
   @JsonKey(name: 'introduction')
   final String? introduction;
   @override
+  @JsonKey(name: 'thumbnail')
+  final String? thumbnail;
+  @override
   @JsonKey(name: 'diet')
   final Diet? diet;
   @override
@@ -238,7 +256,7 @@ class _$_UserInfoDto implements _UserInfoDto {
 
   @override
   String toString() {
-    return 'UserInfoDto(id: $id, nickname: $nickname, username: $username, email: $email, introduction: $introduction, diet: $diet, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'UserInfoDto(id: $id, nickname: $nickname, username: $username, email: $email, introduction: $introduction, thumbnail: $thumbnail, diet: $diet, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -254,6 +272,8 @@ class _$_UserInfoDto implements _UserInfoDto {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.introduction, introduction) ||
                 other.introduction == introduction) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail) &&
             (identical(other.diet, diet) || other.diet == diet) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -264,7 +284,7 @@ class _$_UserInfoDto implements _UserInfoDto {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, nickname, username, email,
-      introduction, diet, createdAt, updatedAt);
+      introduction, thumbnail, diet, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -287,6 +307,7 @@ abstract class _UserInfoDto implements UserInfoDto {
       @JsonKey(name: 'username') final String? username,
       @JsonKey(name: 'email') final String? email,
       @JsonKey(name: 'introduction') final String? introduction,
+      @JsonKey(name: 'thumbnail') final String? thumbnail,
       @JsonKey(name: 'diet') final Diet? diet,
       @JsonKey(name: 'created_at') final DateTime? createdAt,
       @JsonKey(name: 'updated_at') final DateTime? updatedAt}) = _$_UserInfoDto;
@@ -309,6 +330,9 @@ abstract class _UserInfoDto implements UserInfoDto {
   @override
   @JsonKey(name: 'introduction')
   String? get introduction;
+  @override
+  @JsonKey(name: 'thumbnail')
+  String? get thumbnail;
   @override
   @JsonKey(name: 'diet')
   Diet? get diet;

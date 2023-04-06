@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:refri_mobile/constants/icon.dart';
-import 'package:refri_mobile/data/source/remote/auth_api.dart';
 import 'package:refri_mobile/presentation/login/login_action.dart';
 import 'package:refri_mobile/presentation/login/login_view_model.dart';
 
@@ -23,15 +22,15 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
         body: Container(
       width: double.infinity,
-      color: Color(0xFF242325),
+      color: const Color(0xFF242325),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(IconAsset.logoWhiteIcon.path),
           const SizedBox(height: 200),
           loginButton(
-            backgroundColor: Color(0xFFFECD00),
-            textColor: Color(0xFF3C1E1E),
+            backgroundColor: const Color(0xFFFECD00),
+            textColor: const Color(0xFF3C1E1E),
             text: "카카오톡 계정으로 로그인",
             icon: SvgPicture.asset(IconAsset.kakaoIcon.path),
             handleLogin: () {},
@@ -39,7 +38,7 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(height: 16),
           loginButton(
             backgroundColor: Colors.white,
-            textColor: Color(0xFF686868),
+            textColor: const Color(0xFF686868),
             text: "구글 계정으로 로그인",
             icon: SvgPicture.asset(IconAsset.googleIcon.path),
             handleLogin: () =>
@@ -47,7 +46,7 @@ class LoginScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           loginButton(
-            backgroundColor: Color(0xFF111111),
+            backgroundColor: const Color(0xFF111111),
             textColor: Colors.white,
             text: "애플 계정으로 로그인",
             icon: SvgPicture.asset(
@@ -67,12 +66,9 @@ class LoginScreen extends StatelessWidget {
     required icon,
     required handleLogin,
   }) {
-    // final storage = FlutterSecureStorage();
-    final AuthApi authApi = AuthApi();
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32),
-      child: Container(
+      child: SizedBox(
         height: 56,
         child: ElevatedButton(
           onPressed: handleLogin,

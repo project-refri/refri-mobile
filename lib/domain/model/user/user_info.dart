@@ -12,6 +12,7 @@ class UserInfo with _$UserInfo {
     required String username,
     required String email,
     required String introduction,
+    required String thumbnail,
     required Diet diet,
     required DateTime createdAt,
     required DateTime updatedAt,

@@ -18,16 +18,16 @@ class HomeScreen extends StatelessWidget {
       color: Colors.white,
       child: CustomScrollView(
         slivers: [
-          RefriAppBar(
+          const RefriAppBar(
             logoPath: 'asset/svg/logo_icon.svg',
           ),
-          HomeHeader(),
-          SliverToBoxAdapter(child: _CarouselSlider()),
-          SliverToBoxAdapter(child: _Recipe()),
+          const HomeHeader(),
+          const SliverToBoxAdapter(child: _CarouselSlider()),
+          const SliverToBoxAdapter(child: _Recipe()),
           SliverToBoxAdapter(child: Container(height: 6, color: PRIMARY_COLOR)),
-          SliverToBoxAdapter(child: _Contents()),
-          SliverToBoxAdapter(child: _Refriends()),
-          SliverToBoxAdapter(child: _Article()),
+          const SliverToBoxAdapter(child: _Contents()),
+          const SliverToBoxAdapter(child: _Refriends()),
+          const SliverToBoxAdapter(child: _Article()),
         ],
       ),
     );
@@ -44,8 +44,7 @@ class _CarouselSlider extends StatelessWidget {
       'asset/img/main_sample_1.png',
     ];
 
-    return Container(
-        child: CarouselSlider(
+    return CarouselSlider(
       options: CarouselOptions(
         autoPlay: true,
         viewportFraction: 1,
@@ -62,7 +61,7 @@ class _CarouselSlider extends StatelessWidget {
           },
         );
       }).toList(),
-    ));
+    );
   }
 }
 
@@ -71,7 +70,7 @@ class _Recipe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainSection(
+    return const MainSection(
         title: "현재 재료로 추천하는 레시피",
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -155,7 +154,7 @@ class _Refriends extends StatelessWidget {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: 5,
-              separatorBuilder: (context, index) => SizedBox(width: 16),
+              separatorBuilder: (context, index) => const SizedBox(width: 16),
               itemBuilder: (context, index) {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,7 +172,8 @@ class _Refriends extends StatelessWidget {
                       ),
                     ),
                     Text("닉네임 ${index + 1}",
-                        style: TextStyle(fontSize: 12, color: SUB_COLOR_1)),
+                        style:
+                            const TextStyle(fontSize: 12, color: SUB_COLOR_1)),
                   ],
                 );
               },
@@ -188,7 +188,7 @@ class _Article extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainSection(
+    return const MainSection(
         title: "최근 리프렌즈 게시글",
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

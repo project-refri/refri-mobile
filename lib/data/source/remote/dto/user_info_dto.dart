@@ -13,6 +13,7 @@ class UserInfoDto with _$UserInfoDto {
     @JsonKey(name: 'username') String? username,
     @JsonKey(name: 'email') String? email,
     @JsonKey(name: 'introduction') String? introduction,
+    @JsonKey(name: 'thumbnail') String? thumbnail,
     @JsonKey(name: 'diet') Diet? diet,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,

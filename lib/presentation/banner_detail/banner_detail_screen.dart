@@ -17,7 +17,7 @@ class BannerDetailScreen extends StatelessWidget {
           },
           child: Stack(
             children: [
-              Container(
+              SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: Image.asset(arguments['image'], fit: BoxFit.cover)),
@@ -26,7 +26,7 @@ class BannerDetailScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.3,
                 bottom: 0,
                 child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -35,7 +35,7 @@ class BannerDetailScreen extends StatelessWidget {
                         Color.fromARGB(223, 0, 0, 0)
                       ],
                     )),
-                    child: CupertinoActivityIndicator()),
+                    child: const CupertinoActivityIndicator()),
               )
             ],
           ),

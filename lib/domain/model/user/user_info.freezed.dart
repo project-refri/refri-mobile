@@ -25,6 +25,7 @@ mixin _$UserInfo {
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get introduction => throw _privateConstructorUsedError;
+  String get thumbnail => throw _privateConstructorUsedError;
   Diet get diet => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ abstract class $UserInfoCopyWith<$Res> {
       String username,
       String email,
       String introduction,
+      String thumbnail,
       Diet diet,
       DateTime createdAt,
       DateTime updatedAt});
@@ -69,6 +71,7 @@ class _$UserInfoCopyWithImpl<$Res, $Val extends UserInfo>
     Object? username = null,
     Object? email = null,
     Object? introduction = null,
+    Object? thumbnail = null,
     Object? diet = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -93,6 +96,10 @@ class _$UserInfoCopyWithImpl<$Res, $Val extends UserInfo>
       introduction: null == introduction
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
+              as String,
+      thumbnail: null == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String,
       diet: null == diet
           ? _value.diet
@@ -123,6 +130,7 @@ abstract class _$$_UserInfoCopyWith<$Res> implements $UserInfoCopyWith<$Res> {
       String username,
       String email,
       String introduction,
+      String thumbnail,
       Diet diet,
       DateTime createdAt,
       DateTime updatedAt});
@@ -144,6 +152,7 @@ class __$$_UserInfoCopyWithImpl<$Res>
     Object? username = null,
     Object? email = null,
     Object? introduction = null,
+    Object? thumbnail = null,
     Object? diet = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -168,6 +177,10 @@ class __$$_UserInfoCopyWithImpl<$Res>
       introduction: null == introduction
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
+              as String,
+      thumbnail: null == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String,
       diet: null == diet
           ? _value.diet
@@ -194,6 +207,7 @@ class _$_UserInfo implements _UserInfo {
       required this.username,
       required this.email,
       required this.introduction,
+      required this.thumbnail,
       required this.diet,
       required this.createdAt,
       required this.updatedAt});
@@ -212,6 +226,8 @@ class _$_UserInfo implements _UserInfo {
   @override
   final String introduction;
   @override
+  final String thumbnail;
+  @override
   final Diet diet;
   @override
   final DateTime createdAt;
@@ -220,7 +236,7 @@ class _$_UserInfo implements _UserInfo {
 
   @override
   String toString() {
-    return 'UserInfo(id: $id, nickname: $nickname, username: $username, email: $email, introduction: $introduction, diet: $diet, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'UserInfo(id: $id, nickname: $nickname, username: $username, email: $email, introduction: $introduction, thumbnail: $thumbnail, diet: $diet, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -236,6 +252,8 @@ class _$_UserInfo implements _UserInfo {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.introduction, introduction) ||
                 other.introduction == introduction) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail) &&
             (identical(other.diet, diet) || other.diet == diet) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -246,7 +264,7 @@ class _$_UserInfo implements _UserInfo {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, nickname, username, email,
-      introduction, diet, createdAt, updatedAt);
+      introduction, thumbnail, diet, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -269,6 +287,7 @@ abstract class _UserInfo implements UserInfo {
       required final String username,
       required final String email,
       required final String introduction,
+      required final String thumbnail,
       required final Diet diet,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$_UserInfo;
@@ -285,6 +304,8 @@ abstract class _UserInfo implements UserInfo {
   String get email;
   @override
   String get introduction;
+  @override
+  String get thumbnail;
   @override
   Diet get diet;
   @override

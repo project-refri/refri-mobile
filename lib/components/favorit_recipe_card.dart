@@ -17,7 +17,7 @@ class FavoritRecipeCard extends StatelessWidget {
         height: 256,
         width: 140,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(16),
             topRight: Radius.circular(5),
             bottomLeft: Radius.circular(5),
@@ -28,7 +28,7 @@ class FavoritRecipeCard extends StatelessWidget {
                 color: Colors.black.withOpacity(0.1),
                 spreadRadius: 1,
                 blurRadius: 1,
-                offset: Offset(0, 1))
+                offset: const Offset(0, 1))
           ],
           image: DecorationImage(
             image: AssetImage(image),
@@ -43,16 +43,16 @@ class FavoritRecipeCard extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   color: SUB_COLOR_1,
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 '$author님의 레시피',
-                style: TextStyle(
+                style: const TextStyle(
                   color: SUB_COLOR_1,
                   fontSize: 8,
                   fontWeight: FontWeight.w500,

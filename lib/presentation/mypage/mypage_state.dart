@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:refri_mobile/domain/model/auth/auth_info.dart';
 import 'package:refri_mobile/domain/model/user/user_info.dart';
 
 part 'mypage_state.freezed.dart';

@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
-import 'package:refri_mobile/App.dart';
+import 'package:refri_mobile/app.dart';
 import 'package:refri_mobile/data/repository/auth_repository_impl.dart';
 import 'package:refri_mobile/data/repository/user_repository_impl.dart';
 import 'package:refri_mobile/domain/repository/auth_repository.dart';
@@ -17,8 +18,11 @@ void main() async {
   final UserRepository userRepository = UserRepositoryImpl();
   final AuthRepository authRepository = AuthRepositoryImpl();
 
+  GetIt.instance.registerSingleton<AuthRepository>(authRepository);
+
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (_) => MypageViewModel(userRepository)),
+    ChangeNotifierProvider(
+        create: (_) => MypageViewModel(userRepository, authRepository)),
     ChangeNotifierProvider(create: (_) => LoginViewModel(authRepository)),
   ], child: const MyApp()));
 }

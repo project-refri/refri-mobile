@@ -33,12 +33,12 @@ class PostHeader extends StatelessWidget {
                       Positioned(
                           right: 33,
                           child: SvgPicture.asset(IconAsset.gridIcon.path,
-                              colorFilter: ColorFilter.mode(
+                              colorFilter: const ColorFilter.mode(
                                   SUB_COLOR_2, BlendMode.srcIn))),
                       Align(
                           alignment: Alignment.centerRight,
                           child: SvgPicture.asset(IconAsset.tableIcon.path,
-                              colorFilter: ColorFilter.mode(
+                              colorFilter: const ColorFilter.mode(
                                   SUB_COLOR_1, BlendMode.srcIn))),
                     ],
                   ),
