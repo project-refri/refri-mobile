@@ -15,7 +15,7 @@ class ContentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 280,
       height: 75,
       child: Row(
@@ -23,7 +23,7 @@ class ContentCard extends StatelessWidget {
           Container(
             width: 80,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16),
                 topRight: Radius.circular(5),
                 bottomLeft: Radius.circular(5),
@@ -35,10 +35,10 @@ class ContentCard extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 13.5),
+          const SizedBox(width: 13.5),
           Expanded(
               child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               border: Border(
                   bottom: BorderSide(color: Color(0xFF9A8266), width: 1)),
             ),
@@ -46,31 +46,31 @@ class ContentCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("$rank",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 19,
                       fontWeight: FontWeight.w700,
                       color: Color(0xFF9A8266),
                     )),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
                       child: Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text('${NumberFormat('##,000').format(viewCount)} views',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 10,
                             fontWeight: FontWeight.w700,
                             color: Color(0xFF9A8266))),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                   ],
                 ),
               ],

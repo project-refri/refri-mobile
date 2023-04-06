@@ -43,13 +43,13 @@ class MypageScreen extends StatelessWidget {
           viewModel.onAction(const MypageAction.refresh());
         },
         child: CustomScrollView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           slivers: [
             ProfileAppBar(userInfo: state.userInfo!),
             IntroduceHeader(userInfo: state.userInfo!),
             SliverToBoxAdapter(child: Introduce(userInfo: state.userInfo!)),
-            PostHeader(),
-            SliverToBoxAdapter(child: Posts())
+            const PostHeader(),
+            const SliverToBoxAdapter(child: Posts())
           ],
         ),
       ),

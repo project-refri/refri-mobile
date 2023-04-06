@@ -49,10 +49,10 @@ class ProfileAppBar extends StatelessWidget {
                         "라이프",
                         style: defaultTextStyle.copyWith(
                             fontWeight: FontWeight.w400,
-                            color: Color(0xFF8D8D8D),
+                            color: const Color(0xFF8D8D8D),
                             fontSize: 11),
                       ),
-                      Text("0", style: defaultTextStyle)
+                      const Text("0", style: defaultTextStyle)
                     ],
                   ),
                   Column(
@@ -61,10 +61,10 @@ class ProfileAppBar extends StatelessWidget {
                         "팔로잉",
                         style: defaultTextStyle.copyWith(
                             fontWeight: FontWeight.w400,
-                            color: Color(0xFF8D8D8D),
+                            color: const Color(0xFF8D8D8D),
                             fontSize: 11),
                       ),
-                      Text("0", style: defaultTextStyle)
+                      const Text("0", style: defaultTextStyle)
                     ],
                   ),
                   Column(
@@ -73,10 +73,10 @@ class ProfileAppBar extends StatelessWidget {
                         "팔로워",
                         style: defaultTextStyle.copyWith(
                             fontWeight: FontWeight.w400,
-                            color: Color(0xFF8D8D8D),
+                            color: const Color(0xFF8D8D8D),
                             fontSize: 11),
                       ),
-                      Text("0", style: defaultTextStyle)
+                      const Text("0", style: defaultTextStyle)
                     ],
                   )
                 ]),

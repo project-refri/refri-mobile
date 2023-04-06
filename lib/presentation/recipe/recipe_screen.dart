@@ -17,17 +17,17 @@ class RecipeScreen extends StatelessWidget {
       color: Colors.white,
       child: CustomScrollView(
         slivers: [
-          RefriAppBar(
+          const RefriAppBar(
             logoPath: "asset/svg/logo_recipe_icon.svg",
           ),
-          RecipeHeader(),
-          SliverToBoxAdapter(child: _CarouselSlider()),
-          SliverToBoxAdapter(child: _FavoritRecipe()),
+          const RecipeHeader(),
+          const SliverToBoxAdapter(child: _CarouselSlider()),
+          const SliverToBoxAdapter(child: _FavoritRecipe()),
           SliverToBoxAdapter(child: Container(height: 6, color: PRIMARY_COLOR)),
-          SliverToBoxAdapter(child: _Recipe()),
-          SliverToBoxAdapter(child: _PublishBanner()),
-          SliverToBoxAdapter(child: _SimilarRecipe()),
-          SliverToBoxAdapter(child: _RecentRecipe()),
+          const SliverToBoxAdapter(child: _Recipe()),
+          const SliverToBoxAdapter(child: _PublishBanner()),
+          const SliverToBoxAdapter(child: _SimilarRecipe()),
+          const SliverToBoxAdapter(child: _RecentRecipe()),
         ],
       ),
     );
@@ -44,8 +44,7 @@ class _CarouselSlider extends StatelessWidget {
       'asset/img/main_sample_2.png',
     ];
 
-    return Container(
-        child: CarouselSlider(
+    return CarouselSlider(
       options: CarouselOptions(
         autoPlay: true,
         viewportFraction: 1,
@@ -62,7 +61,7 @@ class _CarouselSlider extends StatelessWidget {
           },
         );
       }).toList(),
-    ));
+    );
   }
 }
 
@@ -103,14 +102,14 @@ class _FavoritRecipe extends StatelessWidget {
     ];
 
     return MainSection(
-        padding: EdgeInsets.only(top: 26, bottom: 26, left: 20),
+        padding: const EdgeInsets.only(top: 26, bottom: 26, left: 20),
         title: "이번달 인기있는 레시피",
         child: SizedBox(
           height: 256,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: 3,
-            separatorBuilder: (context, index) => SizedBox(width: 16),
+            separatorBuilder: (context, index) => const SizedBox(width: 16),
             itemBuilder: (context, index) {
               return FavoritRecipeCard(
                 title: data[index].title,
@@ -128,7 +127,7 @@ class _Recipe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainSection(
+    return const MainSection(
         title: "현재 재료로 만들 수 있어요",
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -153,7 +152,7 @@ class _PublishBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 115,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover, image: AssetImage("asset/img/레시피등록배경.png")),
         ),
@@ -163,7 +162,7 @@ class _PublishBanner extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("리프렌즈에게 나의 집밥 레시피를 공유해요!\n레시피 채택시 리프리에서 멋진 선물을 보내드려요.",
+              const Text("리프렌즈에게 나의 집밥 레시피를 공유해요!\n레시피 채택시 리프리에서 멋진 선물을 보내드려요.",
                   style: TextStyle(
                       color: SUB_COLOR_1,
                       fontSize: 10,
@@ -179,7 +178,7 @@ class _PublishBanner extends StatelessWidget {
                       )),
                       backgroundColor: MaterialStateProperty.all(SUB_COLOR_1),
                     ),
-                    child: Text("등록 신청하기",
+                    child: const Text("등록 신청하기",
                         style: TextStyle(
                             color: Color(0xFFFFAE68),
                             fontSize: 10,
@@ -196,7 +195,7 @@ class _SimilarRecipe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainSection(
+    return const MainSection(
         title: "같은 식이성향이 저장했어요",
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -220,12 +219,12 @@ class _RecentRecipe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainSection(
-        padding: EdgeInsets.only(top: 0, bottom: 26, left: 20, right: 20),
+        padding: const EdgeInsets.only(top: 0, bottom: 26, left: 20, right: 20),
         title: "최근 업로드 레시피",
         child: GridView.count(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          padding: EdgeInsets.only(bottom: 20),
+          padding: const EdgeInsets.only(bottom: 20),
           childAspectRatio: 163.97 / 189.88,
           crossAxisCount: 2,
           mainAxisSpacing: 16.5,

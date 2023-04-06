@@ -20,7 +20,7 @@ class ArticleCard extends StatelessWidget {
     return Container(
         height: 190,
         width: 163,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(16),
             topRight: Radius.circular(5),
@@ -34,7 +34,7 @@ class ArticleCard extends StatelessWidget {
             Container(
               height: 130,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(16),
                   topRight: Radius.circular(5),
                 ),
@@ -46,7 +46,7 @@ class ArticleCard extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(5),
                     bottomRight: Radius.circular(5),
@@ -65,14 +65,14 @@ class ArticleCard extends StatelessWidget {
                         children: [
                           Text(
                             title,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: SUB_COLOR_1,
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
                           Text("$viewCount views",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Color(0xFF9A8266),
                                 fontSize: 10,
                               )),
@@ -82,25 +82,25 @@ class ArticleCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(nickname,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Color(0xFF9A8266),
                                 fontSize: 10,
                               )),
-                          SizedBox(width: 8),
-                          Icon(Icons.favorite_border,
+                          const SizedBox(width: 8),
+                          const Icon(Icons.favorite_border,
                               size: 12, color: Color(0xFF9A8266)),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Text(likeCount.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Color(0xFF9A8266),
                                 fontSize: 10,
                               )),
-                          SizedBox(width: 8),
-                          Icon(Icons.mode_comment_outlined,
+                          const SizedBox(width: 8),
+                          const Icon(Icons.mode_comment_outlined,
                               size: 12, color: Color(0xFF9A8266)),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Text(commentCount.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Color(0xFF9A8266),
                                 fontSize: 10,
                               )),

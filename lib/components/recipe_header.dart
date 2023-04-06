@@ -32,18 +32,18 @@ class RecipeHeader extends StatelessWidget {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
-                  separatorBuilder: (context, index) => SizedBox(width: 10),
+                  separatorBuilder: (context, index) => const SizedBox(width: 10),
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 68,
                           width: 68,
                           child: SvgPicture.asset(categories[index].icon),
                         ),
-                        SizedBox(height: 7),
+                        const SizedBox(height: 7),
                         Text(categories[index].title,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 11,
                                 color: SUB_COLOR_1,
                                 fontWeight: FontWeight.w500)),

@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:refri_mobile/data/source/remote/dto/user_info_dto.dart';
 import 'package:refri_mobile/domain/model/auth/auth_info.dart';
-import 'package:refri_mobile/domain/model/user/user_info.dart';
 
 part 'auth_info_dto.freezed.dart';
 

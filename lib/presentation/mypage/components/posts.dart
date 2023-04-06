@@ -25,8 +25,8 @@ class Posts extends StatelessWidget {
             context: context,
             removeTop: true,
             child: ListView.separated(
-                separatorBuilder: (context, index) => SizedBox(height: 8),
-                physics: ScrollPhysics(),
+                separatorBuilder: (context, index) => const SizedBox(height: 8),
+                physics: const ScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 10,
                 itemBuilder: (context, index) =>

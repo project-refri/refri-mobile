@@ -42,7 +42,7 @@ class IntroduceHeader extends StatelessWidget {
                           const SizedBox(width: 10),
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xFF72BF88),
+                                color: const Color(0xFF72BF88),
                                 borderRadius: BorderRadius.circular(100)),
                             child: Padding(
                               padding: const EdgeInsets.only(
