@@ -19,38 +19,32 @@ mixin _$MypageAction<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() refresh,
-    required TResult Function(UserInfo userInfo) updateUserInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? refresh,
-    TResult? Function(UserInfo userInfo)? updateUserInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? refresh,
-    TResult Function(UserInfo userInfo)? updateUserInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Refresh<T> value) refresh,
-    required TResult Function(UpdateUserInfo<T> value) updateUserInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Refresh<T> value)? refresh,
-    TResult? Function(UpdateUserInfo<T> value)? updateUserInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Refresh<T> value)? refresh,
-    TResult Function(UpdateUserInfo<T> value)? updateUserInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +107,6 @@ class _$Refresh<T> implements Refresh<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() refresh,
-    required TResult Function(UserInfo userInfo) updateUserInfo,
   }) {
     return refresh();
   }
@@ -122,7 +115,6 @@ class _$Refresh<T> implements Refresh<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? refresh,
-    TResult? Function(UserInfo userInfo)? updateUserInfo,
   }) {
     return refresh?.call();
   }
@@ -131,7 +123,6 @@ class _$Refresh<T> implements Refresh<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? refresh,
-    TResult Function(UserInfo userInfo)? updateUserInfo,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -144,7 +135,6 @@ class _$Refresh<T> implements Refresh<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Refresh<T> value) refresh,
-    required TResult Function(UpdateUserInfo<T> value) updateUserInfo,
   }) {
     return refresh(this);
   }
@@ -153,7 +143,6 @@ class _$Refresh<T> implements Refresh<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Refresh<T> value)? refresh,
-    TResult? Function(UpdateUserInfo<T> value)? updateUserInfo,
   }) {
     return refresh?.call(this);
   }
@@ -162,7 +151,6 @@ class _$Refresh<T> implements Refresh<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Refresh<T> value)? refresh,
-    TResult Function(UpdateUserInfo<T> value)? updateUserInfo,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -174,148 +162,4 @@ class _$Refresh<T> implements Refresh<T> {
 
 abstract class Refresh<T> implements MypageAction<T> {
   const factory Refresh() = _$Refresh<T>;
-}
-
-/// @nodoc
-abstract class _$$UpdateUserInfoCopyWith<T, $Res> {
-  factory _$$UpdateUserInfoCopyWith(
-          _$UpdateUserInfo<T> value, $Res Function(_$UpdateUserInfo<T>) then) =
-      __$$UpdateUserInfoCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({UserInfo userInfo});
-
-  $UserInfoCopyWith<$Res> get userInfo;
-}
-
-/// @nodoc
-class __$$UpdateUserInfoCopyWithImpl<T, $Res>
-    extends _$MypageActionCopyWithImpl<T, $Res, _$UpdateUserInfo<T>>
-    implements _$$UpdateUserInfoCopyWith<T, $Res> {
-  __$$UpdateUserInfoCopyWithImpl(
-      _$UpdateUserInfo<T> _value, $Res Function(_$UpdateUserInfo<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? userInfo = null,
-  }) {
-    return _then(_$UpdateUserInfo<T>(
-      null == userInfo
-          ? _value.userInfo
-          : userInfo // ignore: cast_nullable_to_non_nullable
-              as UserInfo,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserInfoCopyWith<$Res> get userInfo {
-    return $UserInfoCopyWith<$Res>(_value.userInfo, (value) {
-      return _then(_value.copyWith(userInfo: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$UpdateUserInfo<T> implements UpdateUserInfo<T> {
-  const _$UpdateUserInfo(this.userInfo);
-
-  @override
-  final UserInfo userInfo;
-
-  @override
-  String toString() {
-    return 'MypageAction<$T>.updateUserInfo(userInfo: $userInfo)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateUserInfo<T> &&
-            (identical(other.userInfo, userInfo) ||
-                other.userInfo == userInfo));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, userInfo);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateUserInfoCopyWith<T, _$UpdateUserInfo<T>> get copyWith =>
-      __$$UpdateUserInfoCopyWithImpl<T, _$UpdateUserInfo<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() refresh,
-    required TResult Function(UserInfo userInfo) updateUserInfo,
-  }) {
-    return updateUserInfo(userInfo);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? refresh,
-    TResult? Function(UserInfo userInfo)? updateUserInfo,
-  }) {
-    return updateUserInfo?.call(userInfo);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? refresh,
-    TResult Function(UserInfo userInfo)? updateUserInfo,
-    required TResult orElse(),
-  }) {
-    if (updateUserInfo != null) {
-      return updateUserInfo(userInfo);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Refresh<T> value) refresh,
-    required TResult Function(UpdateUserInfo<T> value) updateUserInfo,
-  }) {
-    return updateUserInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Refresh<T> value)? refresh,
-    TResult? Function(UpdateUserInfo<T> value)? updateUserInfo,
-  }) {
-    return updateUserInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Refresh<T> value)? refresh,
-    TResult Function(UpdateUserInfo<T> value)? updateUserInfo,
-    required TResult orElse(),
-  }) {
-    if (updateUserInfo != null) {
-      return updateUserInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UpdateUserInfo<T> implements MypageAction<T> {
-  const factory UpdateUserInfo(final UserInfo userInfo) = _$UpdateUserInfo<T>;
-
-  UserInfo get userInfo;
-  @JsonKey(ignore: true)
-  _$$UpdateUserInfoCopyWith<T, _$UpdateUserInfo<T>> get copyWith =>
-      throw _privateConstructorUsedError;
 }

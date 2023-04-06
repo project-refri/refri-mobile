@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:refri_mobile/domain/model/user/user_info.dart';
 
 class ProfileAppBar extends StatelessWidget {
-  final String profileImage;
+  final UserInfo userInfo;
 
   const ProfileAppBar({
-    required this.profileImage,
+    required this.userInfo,
     Key? key,
   }) : super(key: key);
 
@@ -82,7 +83,7 @@ class ProfileAppBar extends StatelessWidget {
           ),
         ),
         background: Image.network(
-          profileImage,
+          userInfo.thumbnail,
           fit: BoxFit.cover,
         ),
       ),

@@ -17,21 +17,21 @@ class MypageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel = context.watch<MypageViewModel>();
     final state = viewModel.state;
-    print(state);
-
-    if (state.isLoading) {
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    }
 
     if (state.isError) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        await Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginScreen()));
+        viewModel.onAction(const MypageAction.refresh());
       });
 
       return Container();
+    }
+
+    if (state.isLoading || state.userInfo == null) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
     }
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -42,14 +42,12 @@ class MypageScreen extends StatelessWidget {
         onRefresh: () async {
           viewModel.onAction(const MypageAction.refresh());
         },
-        child: const CustomScrollView(
+        child: CustomScrollView(
           physics: ClampingScrollPhysics(),
           slivers: [
-            ProfileAppBar(
-                profileImage:
-                    "https://user-images.githubusercontent.com/24623403/228809621-4f0a7aec-cd41-4d56-830e-19d37eb08b1f.png"),
-            IntroduceHeader(),
-            SliverToBoxAdapter(child: Introduce()),
+            ProfileAppBar(userInfo: state.userInfo!),
+            IntroduceHeader(userInfo: state.userInfo!),
+            SliverToBoxAdapter(child: Introduce(userInfo: state.userInfo!)),
             PostHeader(),
             SliverToBoxAdapter(child: Posts())
           ],

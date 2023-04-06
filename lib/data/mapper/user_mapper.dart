@@ -9,6 +9,7 @@ extension ToUserInfo on UserInfoDto {
       username: username ?? "",
       email: email ?? "",
       introduction: introduction ?? "",
+      thumbnail: thumbnail ?? "",
       diet: diet ?? Diet.nomal,
       createdAt: createdAt ?? DateTime.now(),
       updatedAt: updatedAt ?? DateTime.now(),

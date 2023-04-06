@@ -42,16 +42,22 @@ class _AppState extends State<App> {
             TabItem(
               title: "홈",
               activeIcon: SvgPicture.asset('asset/svg/home_icon.svg',
-                  color: Colors.black),
+                  colorFilter:
+                      const ColorFilter.mode(Colors.black, BlendMode.srcIn)),
               icon: SvgPicture.asset('asset/svg/home_icon.svg',
-                  color: Colors.grey),
+                  colorFilter:
+                      const ColorFilter.mode(Colors.grey, BlendMode.srcIn)),
             ),
             TabItem(
               title: "냉장고",
-              activeIcon: SvgPicture.asset('asset/svg/refri_icon.svg',
-                  color: Colors.black),
+              activeIcon: SvgPicture.asset(
+                'asset/svg/refri_icon.svg',
+                colorFilter:
+                    const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+              ),
               icon: SvgPicture.asset('asset/svg/refri_icon.svg',
-                  color: Colors.grey),
+                  colorFilter:
+                      const ColorFilter.mode(Colors.grey, BlendMode.srcIn)),
             ),
             TabItem(
               icon: SvgPicture.asset(
@@ -60,17 +66,25 @@ class _AppState extends State<App> {
             ),
             TabItem(
               title: "레시피",
-              activeIcon: SvgPicture.asset('asset/svg/recipe_icon.svg',
-                  color: Colors.black),
+              activeIcon: SvgPicture.asset(
+                'asset/svg/recipe_icon.svg',
+                colorFilter:
+                    const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+              ),
               icon: SvgPicture.asset('asset/svg/recipe_icon.svg',
-                  color: Colors.grey),
+                  colorFilter:
+                      const ColorFilter.mode(Colors.grey, BlendMode.srcIn)),
             ),
             TabItem(
               title: "내정보",
-              activeIcon: SvgPicture.asset('asset/svg/profile_icon.svg',
-                  color: Colors.black),
+              activeIcon: SvgPicture.asset(
+                'asset/svg/profile_icon.svg',
+                colorFilter:
+                    const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+              ),
               icon: SvgPicture.asset('asset/svg/profile_icon.svg',
-                  color: Colors.grey),
+                  colorFilter:
+                      const ColorFilter.mode(Colors.grey, BlendMode.srcIn)),
             ),
           ],
           style: TabStyle.fixedCircle,
