@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:refri_mobile/constants/colors.dart';
 import 'package:refri_mobile/constants/icon.dart';
 import 'package:refri_mobile/domain/model/user/user_info.dart';
-import 'package:refri_mobile/presentation/mypage/components/sliver_fixed_header_delegate.dart';
+import 'package:refri_mobile/components/sliver_fixed_header_delegate.dart';
 
 class IntroduceHeader extends StatelessWidget {
   final UserInfo userInfo;
@@ -15,7 +15,7 @@ class IntroduceHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const defaultTextStyle = TextStyle(
-      color: SUB_COLOR_1,
+      color: subColor1,
       fontSize: 27,
       fontWeight: FontWeight.w500,
       fontFamily: "SpoqaHanSansNeo",
@@ -28,7 +28,7 @@ class IntroduceHeader extends StatelessWidget {
               color: Colors.black,
               child: Container(
                   decoration: const BoxDecoration(
-                    color: PRIMARY_COLOR,
+                    color: primaryColor,
                     borderRadius:
                         BorderRadius.only(topLeft: Radius.circular(28)),
                   ),

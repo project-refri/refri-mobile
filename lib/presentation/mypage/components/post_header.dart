@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:refri_mobile/constants/colors.dart';
 import 'package:refri_mobile/constants/icon.dart';
-import 'package:refri_mobile/presentation/mypage/components/sliver_fixed_header_delegate.dart';
+import 'package:refri_mobile/components/sliver_fixed_header_delegate.dart';
 
 class PostHeader extends StatelessWidget {
   const PostHeader({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class PostHeader extends StatelessWidget {
         pinned: true,
         delegate: SliverFixedHeaderDelegate(
             child: Container(
-              color: PRIMARY_COLOR,
+              color: primaryColor,
               child: Container(
                 decoration: const BoxDecoration(
                     color: Colors.white,
@@ -29,17 +29,17 @@ class PostHeader extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.w600,
-                              color: SUB_COLOR_1)),
+                              color: subColor1)),
                       Positioned(
                           right: 33,
                           child: SvgPicture.asset(IconAsset.gridIcon.path,
                               colorFilter: const ColorFilter.mode(
-                                  SUB_COLOR_2, BlendMode.srcIn))),
+                                  subColor2, BlendMode.srcIn))),
                       Align(
                           alignment: Alignment.centerRight,
                           child: SvgPicture.asset(IconAsset.tableIcon.path,
                               colorFilter: const ColorFilter.mode(
-                                  SUB_COLOR_1, BlendMode.srcIn))),
+                                  subColor1, BlendMode.srcIn))),
                     ],
                   ),
                 ),

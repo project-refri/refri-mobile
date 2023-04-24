@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           const HomeHeader(),
           const SliverToBoxAdapter(child: _CarouselSlider()),
           const SliverToBoxAdapter(child: _Recipe()),
-          SliverToBoxAdapter(child: Container(height: 6, color: PRIMARY_COLOR)),
+          SliverToBoxAdapter(child: Container(height: 6, color: primaryColor)),
           const SliverToBoxAdapter(child: _Contents()),
           const SliverToBoxAdapter(child: _Refriends()),
           const SliverToBoxAdapter(child: _Article()),
@@ -146,7 +146,7 @@ class _Refriends extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: PRIMARY_COLOR,
+      color: primaryColor,
       child: MainSection(
           title: "집밥잘알 리프렌즈",
           child: SizedBox(
@@ -172,8 +172,7 @@ class _Refriends extends StatelessWidget {
                       ),
                     ),
                     Text("닉네임 ${index + 1}",
-                        style:
-                            const TextStyle(fontSize: 12, color: SUB_COLOR_1)),
+                        style: const TextStyle(fontSize: 12, color: subColor1)),
                   ],
                 );
               },

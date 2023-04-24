@@ -23,7 +23,7 @@ class RecipeScreen extends StatelessWidget {
           const RecipeHeader(),
           const SliverToBoxAdapter(child: _CarouselSlider()),
           const SliverToBoxAdapter(child: _FavoritRecipe()),
-          SliverToBoxAdapter(child: Container(height: 6, color: PRIMARY_COLOR)),
+          SliverToBoxAdapter(child: Container(height: 6, color: primaryColor)),
           const SliverToBoxAdapter(child: _Recipe()),
           const SliverToBoxAdapter(child: _PublishBanner()),
           const SliverToBoxAdapter(child: _SimilarRecipe()),
@@ -164,7 +164,7 @@ class _PublishBanner extends StatelessWidget {
             children: [
               const Text("리프렌즈에게 나의 집밥 레시피를 공유해요!\n레시피 채택시 리프리에서 멋진 선물을 보내드려요.",
                   style: TextStyle(
-                      color: SUB_COLOR_1,
+                      color: subColor1,
                       fontSize: 10,
                       fontWeight: FontWeight.w500)),
               SizedBox(
@@ -176,7 +176,7 @@ class _PublishBanner extends StatelessWidget {
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       )),
-                      backgroundColor: MaterialStateProperty.all(SUB_COLOR_1),
+                      backgroundColor: MaterialStateProperty.all(subColor1),
                     ),
                     child: const Text("등록 신청하기",
                         style: TextStyle(
