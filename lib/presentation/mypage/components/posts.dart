@@ -9,7 +9,7 @@ class Posts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: PRIMARY_COLOR,
+      color: primaryColor,
       child: Container(
         decoration: const BoxDecoration(
             color: Colors.white,
@@ -41,7 +41,7 @@ class Posts extends StatelessWidget {
     return Container(
       height: 105,
       decoration: BoxDecoration(
-        border: Border.all(color: SUB_COLOR_3),
+        border: Border.all(color: subColor3),
       ),
       child: Row(children: [
         SizedBox(width: 138, child: Image.asset(img, fit: BoxFit.cover)),
@@ -56,22 +56,22 @@ class Posts extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
-                        color: SUB_COLOR_1)),
+                        color: subColor1)),
                 const Text("게시글 내용 첫줄 게시글 내용 첫줄 게시글 내용 첫줄 게시글 내용 첫줄",
-                    style: TextStyle(fontSize: 9, color: SUB_COLOR_2)),
+                    style: TextStyle(fontSize: 9, color: subColor2)),
                 Row(
                   children: [
                     SvgPicture.asset(IconAsset.likeIcon.path,
                         width: 13, height: 13, fit: BoxFit.cover),
                     const SizedBox(width: 4),
                     const Text("532",
-                        style: TextStyle(fontSize: 11, color: SUB_COLOR_2)),
+                        style: TextStyle(fontSize: 11, color: subColor2)),
                     const SizedBox(width: 6),
                     SvgPicture.asset(IconAsset.timeIcon.path,
                         width: 13, height: 13),
                     const SizedBox(width: 4),
                     const Text("1일전",
-                        style: TextStyle(fontSize: 11, color: SUB_COLOR_2)),
+                        style: TextStyle(fontSize: 11, color: subColor2)),
                   ],
                 ),
               ],

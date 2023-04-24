@@ -14,13 +14,13 @@ class Introduce extends StatelessWidget {
   Widget build(BuildContext context) {
     const defaultStyle = TextStyle(
       fontFamily: "SpoqaHanSansNeo",
-      color: SUB_COLOR_1,
+      color: subColor1,
       fontSize: 11,
       fontWeight: FontWeight.w400,
     );
 
     return Container(
-      color: PRIMARY_COLOR,
+      color: primaryColor,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
         child: Column(
@@ -40,7 +40,7 @@ class Introduce extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {},
-              style: ElevatedButton.styleFrom(backgroundColor: SUB_COLOR_1),
+              style: ElevatedButton.styleFrom(backgroundColor: subColor1),
               child: Text("팔로우하기",
                   style: defaultStyle.copyWith(
                       color: Colors.white,

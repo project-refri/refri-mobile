@@ -2,6 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:refri_mobile/constants/colors.dart';
+import 'package:refri_mobile/presentation/fridge/fridge_screen.dart';
 import 'package:refri_mobile/presentation/home/home_screen.dart';
 import 'package:refri_mobile/presentation/mypage/mypage_screen.dart';
 import 'package:refri_mobile/presentation/recipe/recipe_screen.dart';
@@ -19,10 +20,7 @@ class _AppState extends State<App> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    Text(
-      '냉장고',
-      style: optionStyle,
-    ),
+    FridgeScreen(),
     Text(
       '추가하기',
       style: optionStyle,
@@ -88,9 +86,9 @@ class _AppState extends State<App> {
             ),
           ],
           style: TabStyle.fixedCircle,
-          backgroundColor: PRIMARY_COLOR,
-          color: SUB_COLOR_2,
-          activeColor: SUB_COLOR_1,
+          backgroundColor: primaryColor,
+          color: subColor2,
+          activeColor: subColor1,
           onTap: _onItemTapped,
           curveSize: 0,
           top: -45,
