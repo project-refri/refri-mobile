@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:refri_mobile/components/sliver_fixed_header_delegate.dart';
 import 'package:refri_mobile/constants/colors.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -7,9 +8,9 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPersistentHeader(
-        delegate: _SliverFixedHeaderDelegate(
+        delegate: SliverFixedHeaderDelegate(
       child: Container(
-          color: PRIMARY_COLOR,
+          color: primaryColor,
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
@@ -18,16 +19,17 @@ class HomeHeader extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: SUB_COLOR_1, width: 1.5),
+                    borderSide: const BorderSide(color: subColor1, width: 1.5),
                     borderRadius: BorderRadius.circular(40.0),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: SUB_COLOR_1, width: 1.5),
+                    borderSide: const BorderSide(color: subColor1, width: 1.5),
                     borderRadius: BorderRadius.circular(40.0),
                   ),
                   labelText: '재료명, 레시피, 리프렌즈를 찾아보세요.',
-                  labelStyle: const TextStyle(color: Color(0xFF9A8266), fontSize: 12),
-                  suffixIcon: const Icon(Icons.search, color: SUB_COLOR_1),
+                  labelStyle:
+                      const TextStyle(color: Color(0xFF9A8266), fontSize: 12),
+                  suffixIcon: const Icon(Icons.search, color: subColor1),
                 ),
               ),
             ),
@@ -35,33 +37,5 @@ class HomeHeader extends StatelessWidget {
       maxHeight: 70,
       minHeight: 7,
     ));
-  }
-}
-
-class _SliverFixedHeaderDelegate extends SliverPersistentHeaderDelegate {
-  final Widget child;
-  final double maxHeight;
-  final double minHeight;
-
-  _SliverFixedHeaderDelegate(
-      {required this.child, required this.maxHeight, required this.minHeight});
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return SizedBox.expand(child: child);
-  }
-
-  @override
-  double get maxExtent => maxHeight;
-
-  @override
-  double get minExtent => minHeight;
-
-  @override
-  bool shouldRebuild(_SliverFixedHeaderDelegate oldDelegate) {
-    return oldDelegate.minHeight != minHeight ||
-        oldDelegate.maxHeight != maxHeight ||
-        oldDelegate.child != child;
   }
 }

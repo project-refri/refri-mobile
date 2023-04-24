@@ -26,14 +26,14 @@ class MainSection extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 19,
                     fontWeight: FontWeight.bold,
-                    color: SUB_COLOR_1),
+                    color: subColor1),
               ),
               const Text(
                 '전체보기',
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
-                  color: SECONDARY_COLOR,
+                  color: secondaryColor,
                 ),
               ),
             ],

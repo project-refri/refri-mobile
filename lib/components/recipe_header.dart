@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:refri_mobile/components/sliver_fixed_header_delegate.dart';
 import 'package:refri_mobile/constants/colors.dart';
 
 class _Caterory {
@@ -21,9 +22,9 @@ class RecipeHeader extends StatelessWidget {
     ];
 
     return SliverPersistentHeader(
-        delegate: _SliverFixedHeaderDelegate(
+        delegate: SliverFixedHeaderDelegate(
       child: Container(
-          color: PRIMARY_COLOR,
+          color: primaryColor,
           child: Padding(
               padding:
                   const EdgeInsets.only(left: 20.0, top: 16.0, bottom: 16.0),
@@ -32,7 +33,8 @@ class RecipeHeader extends StatelessWidget {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
-                  separatorBuilder: (context, index) => const SizedBox(width: 10),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 10),
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
@@ -45,7 +47,7 @@ class RecipeHeader extends StatelessWidget {
                         Text(categories[index].title,
                             style: const TextStyle(
                                 fontSize: 11,
-                                color: SUB_COLOR_1,
+                                color: subColor1,
                                 fontWeight: FontWeight.w500)),
                       ],
                     );
@@ -55,33 +57,5 @@ class RecipeHeader extends StatelessWidget {
       maxHeight: 124,
       minHeight: 124,
     ));
-  }
-}
-
-class _SliverFixedHeaderDelegate extends SliverPersistentHeaderDelegate {
-  final Widget child;
-  final double maxHeight;
-  final double minHeight;
-
-  _SliverFixedHeaderDelegate(
-      {required this.child, required this.maxHeight, required this.minHeight});
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return SizedBox.expand(child: child);
-  }
-
-  @override
-  double get maxExtent => maxHeight;
-
-  @override
-  double get minExtent => minHeight;
-
-  @override
-  bool shouldRebuild(_SliverFixedHeaderDelegate oldDelegate) {
-    return oldDelegate.minHeight != minHeight ||
-        oldDelegate.maxHeight != maxHeight ||
-        oldDelegate.child != child;
   }
 }

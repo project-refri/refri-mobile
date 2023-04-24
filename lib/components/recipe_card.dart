@@ -64,7 +64,7 @@ class RecipeCard extends StatelessWidget {
                     Text(
                       title,
                       style: const TextStyle(
-                        color: SUB_COLOR_1,
+                        color: subColor1,
                         fontSize: 12,
                         fontWeight: FontWeight.w700,
                       ),
@@ -81,14 +81,14 @@ class RecipeCard extends StatelessWidget {
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(30),
                                           ),
-                                          color: PRIMARY_COLOR),
+                                          color: primaryColor),
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 8.8, vertical: 2.6),
                                         child: Text(tag,
                                             style: const TextStyle(
                                                 fontSize: 9,
-                                                color: SECONDARY_COLOR)),
+                                                color: secondaryColor)),
                                       ),
                                     ),
                                   ))
