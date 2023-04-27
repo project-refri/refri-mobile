@@ -1,10 +1,16 @@
 enum IconAsset {
-  cookerIcon('cooker_icon'),
+  // 레시피 스크린
+  tileIcon('tile_icon'),
   eatingPeopleIcon('eating_people_icon'),
+  ingredientIcon('ingredient_icon'),
+  menuIcon('menu_icon'),
+  themeIcon('theme_icon'),
+  conditionIcon('condition_icon'),
+  cookerIcon('cooker_icon'),
+
   foodIcon('food_icon'),
   gridIcon('grid_icon'),
   homeIcon('home_icon'),
-  ingredientIcon('ingredient_icon'),
   likeIcon('like_icon'),
   logoRecipeIcon('logo_recipe_icon'),
   logoFridgeIcon('logo_fridge_icon'),
@@ -16,7 +22,6 @@ enum IconAsset {
   recipeIcon('recipe_icon'),
   refriIcon('refri_icon'),
   tableIcon('table_icon'),
-  tileIcon('tile_icon'),
   timeIcon('time_icon'),
   appleIcon('apple_icon'),
   kakaoIcon('kakao_icon'),

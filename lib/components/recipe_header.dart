@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:refri_mobile/components/sliver_fixed_header_delegate.dart';
 import 'package:refri_mobile/constants/colors.dart';
+import 'package:refri_mobile/constants/icon.dart';
 
 class _Caterory {
   String title, icon;
@@ -14,11 +15,13 @@ class RecipeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<_Caterory> categories = [
-      _Caterory(title: "전체보기", icon: 'asset/svg/전체보기.svg'),
-      _Caterory(title: "식이성향", icon: 'asset/svg/식이성향.svg'),
-      _Caterory(title: "재료", icon: 'asset/svg/재료.svg'),
-      _Caterory(title: "상황", icon: 'asset/svg/상황.svg'),
-      _Caterory(title: "조리방법", icon: 'asset/svg/조리방법.svg'),
+      _Caterory(title: "전체보기", icon: IconAsset.tileIcon.path),
+      _Caterory(title: "식이성향", icon: IconAsset.eatingPeopleIcon.path),
+      _Caterory(title: "재료", icon: IconAsset.ingredientIcon.path),
+      _Caterory(title: "메뉴", icon: IconAsset.menuIcon.path),
+      _Caterory(title: "테마", icon: IconAsset.themeIcon.path),
+      _Caterory(title: "상황", icon: IconAsset.conditionIcon.path),
+      _Caterory(title: "조리방법", icon: IconAsset.cookerIcon.path),
     ];
 
     return SliverPersistentHeader(
@@ -32,7 +35,7 @@ class RecipeHeader extends StatelessWidget {
                 height: 88,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 5,
+                  itemCount: categories.length,
                   separatorBuilder: (context, index) =>
                       const SizedBox(width: 10),
                   itemBuilder: (context, index) {

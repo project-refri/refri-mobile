@@ -7,6 +7,7 @@ import 'package:refri_mobile/components/recipe_card.dart';
 import 'package:refri_mobile/components/recipe_header.dart';
 import 'package:refri_mobile/components/refri_app_bar.dart';
 import 'package:refri_mobile/constants/colors.dart';
+import 'package:refri_mobile/constants/image.dart';
 
 class RecipeScreen extends StatelessWidget {
   const RecipeScreen({Key? key}) : super(key: key);
@@ -152,9 +153,10 @@ class _PublishBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 115,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage("asset/img/레시피등록배경.png")),
+              fit: BoxFit.cover,
+              image: AssetImage(ImageAsset.registerRecipe.path)),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -234,36 +236,6 @@ class _RecentRecipe extends StatelessWidget {
               title: "견과류를 얹은 노오븐 머핀",
               tags: ["호두", "디저트", "달콤한"],
               image: "asset/img/recipe_sample_5.png",
-            ),
-            RecipeCard(
-              title: "연어 바지락 크림스프",
-              tags: ["키토", "따뜻한", "편안한"],
-              image: "asset/img/recipe_sample_2.png",
-            ),
-            RecipeCard(
-              title: "연어 바지락 크림스프",
-              tags: ["키토", "따뜻한", "편안한"],
-              image: "asset/img/recipe_sample_2.png",
-            ),
-            RecipeCard(
-              title: "연어 바지락 크림스프",
-              tags: ["키토", "따뜻한", "편안한"],
-              image: "asset/img/recipe_sample_2.png",
-            ),
-            RecipeCard(
-              title: "연어 바지락 크림스프",
-              tags: ["키토", "따뜻한", "편안한"],
-              image: "asset/img/recipe_sample_2.png",
-            ),
-            RecipeCard(
-              title: "연어 바지락 크림스프",
-              tags: ["키토", "따뜻한", "편안한"],
-              image: "asset/img/recipe_sample_2.png",
-            ),
-            RecipeCard(
-              title: "연어 바지락 크림스프",
-              tags: ["키토", "따뜻한", "편안한"],
-              image: "asset/img/recipe_sample_2.png",
             ),
             RecipeCard(
               title: "연어 바지락 크림스프",
