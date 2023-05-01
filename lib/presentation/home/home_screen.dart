@@ -70,21 +70,42 @@ class _Recipe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MainSection(
+    return MainSection(
         title: "현재 재료로 추천하는 레시피",
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          RecipeCard(
-            title: "샐러드로 채운 아보카도",
-            tags: ["키토", "비건", "가벼운"],
-            image: "asset/img/recipe_sample_1.png",
+        child: SizedBox(
+          height: 198,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: const [
+              Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: RecipeCard(
+                  title: "샐러드로 채운 아보카도",
+                  tags: ["키토", "비건", "가벼운"],
+                  image: "asset/img/recipe_sample_1.png",
+                ),
+              ),
+              SizedBox(width: 16),
+              Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: RecipeCard(
+                  title: "연어 바지락 크림스프",
+                  tags: ["키토", "따뜻한", "편안한"],
+                  image: "asset/img/recipe_sample_2.png",
+                ),
+              ),
+              SizedBox(width: 16),
+              Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: RecipeCard(
+                  title: "연어 바지락 크림스프",
+                  tags: ["키토", "따뜻한", "편안한"],
+                  image: "asset/img/recipe_sample_2.png",
+                ),
+              ),
+            ],
           ),
-          RecipeCard(
-            title: "연어 바지락 크림스프",
-            tags: ["키토", "따뜻한", "편안한"],
-            image: "asset/img/recipe_sample_2.png",
-          ),
-        ]));
+        ));
   }
 }
 
