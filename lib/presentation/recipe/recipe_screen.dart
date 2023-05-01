@@ -128,21 +128,42 @@ class _Recipe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MainSection(
+    return MainSection(
         title: "현재 재료로 만들 수 있어요",
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          RecipeCard(
-            title: "샐러드로 채운 아보카도",
-            tags: ["키토", "비건", "가벼운"],
-            image: "asset/img/recipe_sample_1.png",
+        child: SizedBox(
+          height: 198,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: const [
+              Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: RecipeCard(
+                  title: "샐러드로 채운 아보카도",
+                  tags: ["키토", "비건", "가벼운"],
+                  image: "asset/img/recipe_sample_1.png",
+                ),
+              ),
+              SizedBox(width: 16),
+              Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: RecipeCard(
+                  title: "연어 바지락 크림스프",
+                  tags: ["키토", "따뜻한", "편안한"],
+                  image: "asset/img/recipe_sample_2.png",
+                ),
+              ),
+              SizedBox(width: 16),
+              Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: RecipeCard(
+                  title: "연어 바지락 크림스프",
+                  tags: ["키토", "따뜻한", "편안한"],
+                  image: "asset/img/recipe_sample_2.png",
+                ),
+              ),
+            ],
           ),
-          RecipeCard(
-            title: "연어 바지락 크림스프",
-            tags: ["키토", "따뜻한", "편안한"],
-            image: "asset/img/recipe_sample_2.png",
-          ),
-        ]));
+        ));
   }
 }
 
@@ -197,21 +218,30 @@ class _SimilarRecipe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MainSection(
+    return MainSection(
+        padding: const EdgeInsets.only(top: 26, bottom: 0, left: 20, right: 20),
         title: "같은 식이성향이 저장했어요",
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          RecipeCard(
-            title: "닭가슴살 키토 김밥",
-            tags: ["키토", "가벼운", "단백질"],
-            image: "asset/img/recipe_sample_3.png",
-          ),
-          RecipeCard(
-            title: "소스 자작한 연어 스테이크",
-            tags: ["키토", "따뜻한", "단백질"],
-            image: "asset/img/recipe_sample_4.png",
-          ),
-        ]));
+        child: GridView.count(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          padding: const EdgeInsets.only(bottom: 20),
+          childAspectRatio: 163.97 / 189.88,
+          crossAxisCount: 2,
+          mainAxisSpacing: 16.5,
+          crossAxisSpacing: 20,
+          children: const [
+            RecipeCard(
+              title: "닭가슴살 키토 김밥",
+              tags: ["키토", "가벼운", "단백질"],
+              image: "asset/img/recipe_sample_3.png",
+            ),
+            RecipeCard(
+              title: "소스 자작한 연어 스테이크",
+              tags: ["키토", "따뜻한", "단백질"],
+              image: "asset/img/recipe_sample_4.png",
+            ),
+          ],
+        ));
   }
 }
 
