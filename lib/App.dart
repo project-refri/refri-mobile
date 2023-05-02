@@ -6,6 +6,7 @@ import 'package:refri_mobile/presentation/fridge/fridge_screen.dart';
 import 'package:refri_mobile/presentation/home/home_screen.dart';
 import 'package:refri_mobile/presentation/mypage/mypage_screen.dart';
 import 'package:refri_mobile/presentation/recipe/recipe_screen.dart';
+import 'package:refri_mobile/presentation/upload/upload_screen.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -16,15 +17,10 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     FridgeScreen(),
-    Text(
-      '추가하기',
-      style: optionStyle,
-    ),
+    UploadScreen(),
     RecipeScreen(),
     MypageScreen(),
   ];

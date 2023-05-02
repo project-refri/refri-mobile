@@ -42,6 +42,7 @@ enum IconAsset {
   shrimpIcon('shrimp_icon'),
   steakIcon('steak_icon'),
   yogurtIcon('yogurt_icon'),
+  leafIcon('leaf_icon'),
   ;
 
   const IconAsset(this.name);

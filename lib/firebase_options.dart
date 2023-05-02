@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -46,16 +49,6 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBgpQPFEo0phWzpJJFMWqXnKa-uZwPxt04',
-    appId: '1:66132228049:web:4080fa69fc70068e6f12f0',
-    messagingSenderId: '66132228049',
-    projectId: 'poetic-torch-381606',
-    authDomain: 'poetic-torch-381606.firebaseapp.com',
-    storageBucket: 'poetic-torch-381606.appspot.com',
-    measurementId: 'G-S4XLK02RZK',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDoKWArdhJMfM-rDWm5auts6OmdytcJkf4',
     appId: '1:66132228049:android:97bbf3dfd1cccdd66f12f0',
@@ -66,11 +59,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCEJv0VLhAc9wJ-1Z7l9iPjx0VAehDOUkk',
-    appId: '1:66132228049:ios:280cf024a5dcaa8a6f12f0',
+    appId: '1:66132228049:ios:b7d757ed94e8e4636f12f0',
     messagingSenderId: '66132228049',
     projectId: 'poetic-torch-381606',
     storageBucket: 'poetic-torch-381606.appspot.com',
-    iosClientId: '66132228049-ibo8l7hgjqklt9r055qn1f30q16hltuq.apps.googleusercontent.com',
-    iosBundleId: 'com.example.refriMobile',
+    androidClientId: '66132228049-oa65qidpm6n6c91v7hiaqs12i50gst94.apps.googleusercontent.com',
+    iosClientId: '66132228049-eprss7iio15d88cvquv9hphre4vc9joa.apps.googleusercontent.com',
+    iosBundleId: 'com.refri.refriMobile',
   );
 }

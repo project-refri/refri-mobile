@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:refri_mobile/constants/colors.dart';
 import 'package:refri_mobile/domain/model/user/user_info.dart';
+import 'package:refri_mobile/presentation/setting/settingScreen.dart';
 
 class ProfileAppBar extends StatelessWidget {
   final UserInfo userInfo;
@@ -22,13 +24,16 @@ class ProfileAppBar extends StatelessWidget {
       pinned: true,
       backgroundColor: Colors.black,
       expandedHeight: 450,
-      leading: const SizedBox(
-        width: 100,
-        height: 40,
-        child: Center(
-          child: Icon(Icons.arrow_back_ios, color: Colors.black),
-        ),
-      ),
+      actions: [
+        IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SettingScreen()));
+            },
+            icon: const Icon(Icons.settings, color: primaryColor))
+      ],
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsets.all(0),
         title: Container(
