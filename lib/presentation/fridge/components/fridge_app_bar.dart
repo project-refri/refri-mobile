@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:refri_mobile/components/sliver_fixed_header_delegate.dart';
 import 'package:refri_mobile/constants/colors.dart';
 import 'package:refri_mobile/constants/icon.dart';
-import 'package:refri_mobile/domain/model/user/user_info.dart';
 import 'package:refri_mobile/presentation/fridge/components/expire_list.dart';
 import 'package:refri_mobile/presentation/fridge/components/nutrient_info.dart';
 
